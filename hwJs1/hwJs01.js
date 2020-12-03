@@ -1,6 +1,6 @@
 let a = confirm();
-while (a !== true) {
-	if (a === true) {
+while (!a) {
+	if (a) {
 		break;
 	} 
 	else {
