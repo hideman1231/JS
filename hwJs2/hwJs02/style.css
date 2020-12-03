@@ -1,0 +1,18 @@
+.films__search {
+	float: right;
+}
+
+.search {
+	width: 200px;
+}
+
+.btn {
+	width: 200px;
+}
+
+.film {
+	height: 295px;
+	width: 400px;
+	background-repeat: no-repeat;
+}
+
