@@ -1,7 +1,6 @@
 const search = document.getElementsByClassName("search");
 const btn = document.getElementsByClassName("btn");
 const films = document.getElementsByClassName("film");
-const names = document.getElementsByClassName("name");
 
 for (let i = 0; i < search.length; i++)
 	btn[i].addEventListener("click", (event) => {
@@ -11,11 +10,18 @@ for (let i = 0; i < search.length; i++)
 			return response.json();
 			})
 		.then(item => {
-			for (let i = 0; i < films.length; i++)
-				films[i].innerHTML = `<img src="${item[i].show.image.medium}">`;
-			for (let i = 0; i < names.length; i++)
-				names[i].innerHTML = `<h1>${item[i].show.name}</h1>`;
-			});
+			for (let j = 0; j < item.length; j++) {
+				let image = document.createElement("img");
+				image.src = item[j].show.image.medium;
+				films[0].appendChild(image);
+				let name = document.createElement("h2");
+				name.innerText = item[j].show.name;
+				films[0].appendChild(name);
+			};
+		})
+		.catch(error => {
+	 		console.log("all that I found");
+	 	});
 	});
 
 
