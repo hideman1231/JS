@@ -2,8 +2,11 @@ const search = document.getElementsByClassName("search");
 const btn = document.getElementsByClassName("btn");
 const films = document.getElementsByClassName("film");
 
-for (let i = 0; i < search.length; i++)
+for (let i = 0; i < search.length; i++) {
 	btn[i].addEventListener("click", (event) => {
+		while (films[0].firstChild) {
+			films[0].removeChild(films[0].firstChild);
+		}
 		let promes = fetch(`http://api.tvmaze.com/search/shows?q=${search[i].value}`);
 	promes
 		.then(response => {
@@ -23,7 +26,7 @@ for (let i = 0; i < search.length; i++)
 	 		console.log("all that I found");
 	 	});
 	});
-
+};
 
 
 
